@@ -15,7 +15,7 @@ end
 val dyn : {P:PS} -> P.sta code -> P.t
 val cd : {P:PS} -> P.t -> P.sta code
 
-(* Possibly-static data *)
+(* Possibly-static_ data *)
 type ('s, 'd) sd = Sta of 's | Dyn of 'd code
 
 module SD (T:sig type t val lift : t -> t code val eq : t -> t -> partial_equality end) :

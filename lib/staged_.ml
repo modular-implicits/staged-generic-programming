@@ -1,4 +1,4 @@
-include Metasyb_classes_
-module Instances = Metasyb_instances_
-include Metasyb_schemes_
-open Metasyb_instantiate
+include Classes_
+module Instances = Instances_
+include Schemes_
+open implicit Instantiate_

@@ -1,6 +1,6 @@
-open Syb_common
-open Metasyb_classes_
-open Partially_static
+open Common
+open Classes_
+open Partially_static_
 
 val gfixQ_ : ('v code genericQ_ -> 'v code genericQ_) -> 'v code genericQ_
 val gfixT_ : (genericT_ -> genericT_) -> genericT_

@@ -1,4 +1,4 @@
-open Partially_static
+open Partially_static_
 
 type field_info = { name: string; mut: bool }
 

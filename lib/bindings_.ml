@@ -13,7 +13,7 @@ as high in the scope as still safe (creating no scope extrusion).
 *)
 
 open Delimcc
-open Metasyb_classes_
+open Classes_
 
 (* If we are going to use delimited control, we need to tell MetaOCaml,
    by adjusting its stackmark facility -- provide the implementation of
@@ -50,7 +50,7 @@ let genlet (c : 'a code) : 'a code = shift0 lrp (fun k -> Let (c,k))
 let genletrec1 f = shift0 lrp (fun k -> LetRec (f,k))
 
 let is_well_scoped : 'a. 'a code -> bool = fun c ->
-  try ignore (.<begin ignore .~c; () end>.); true with e -> false
+  try ignore (.<begin ignore .~c; () end>.); true with _e -> false
 
 let rec let_locus : type w.(unit -> w code) -> w code = fun body ->
   let r = ref None in
@@ -66,7 +66,7 @@ in
   loop @@ push_prompt lrp @@ fun () ->
     r := Some (body ()); Done
 
-open Partially_static
+open Partially_static_
 
 type ('t, 't_) reifyt = {
   reifyt: {P:PS} -> ('t code -> ('t_ -> P.t)  -> P.t)
@@ -88,7 +88,7 @@ and ('t, 't_, 'b, 'bsta) case_record = {
 (* The single prompt for case-insertion *)
 let crp : case_req prompt = new_prompt ()
 
-let send_case_req : type b t t_. {P:PS} -> (t, t_) reifyt -> t code -> (t_ -> P.t) -> P.t * bool =
+let send_case_req : type _b t t_. {P:PS} -> (t, t_) reifyt -> t code -> (t_ -> P.t) -> P.t * bool =
   fun {P:PS} ({reifyt} as rt) x unrolledk ->
     let reifyk : {P:PS} -> (t_ -> P.t) -> P.t
       = fun {P:PS} k -> reifyt x k in
@@ -99,11 +99,11 @@ let send_case_req : type b t t_. {P:PS} -> (t, t_) reifyt -> t code -> (t_ -> P.
       (reifyk unrolledk, false)
 
 
-(* if the continuations are both static and equal then we can replace
+(* if the continuations are both static_ and equal then we can replace
    the whole match with just the continuation.*)
 type 'pt optreq = OCont of 'pt * (unit -> 'pt optreq) | ODone
 
-(* collapse a list of "continuations" if they're all static and equal *)
+(* collapse a list of "continuations" if they're all static_ and equal *)
 let rec collapsek : {P:PS} -> P.t ->  P.t list -> P.t option = fun {P:PS} seed -> function
     [] when P.now seed <> None -> Some seed
   | [] -> None
@@ -115,7 +115,7 @@ let optimized_reify : {P:PS} -> {D:DATA_} -> D.t code -> (D.t_ -> P.t) -> P.t op
     let optp = new_prompt () in
     (* 'handle' accumulates the "continuations" (match branches) in
        'conts' and, when they're all accumluated, collapses if they're
-       static and equal *)
+       static_ and equal *)
     let rec handle conts req : P.t option = match conts, req with
         [], ODone -> None
       | seed :: conts, ODone  -> collapsek seed conts
@@ -136,11 +136,11 @@ let reify : {P:PS} -> {D:DATA_} -> D.t code -> (D.t_ -> P.t) -> P.t =
       None -> fst (send_case_req {P} {reifyt=D.reify} x unrolledk)
     | Some c -> c
 
-let rec case_locus : {W:PS} -> (unit -> W.t) -> W.t = fun {W:PS} body ->
+let case_locus : {W:PS} -> (unit -> W.t) -> W.t = fun {W:PS} body ->
   let r = ref None in
   let rec loop : case_req -> W.t = function
     | Done      -> read_answer r
-    | Case ((module P), {x; reifyk; letk; unrolledk}) when not (is_well_scoped x) ->
+    | Case ((module P), {x; reifyk; letk; unrolledk; _}) when not (is_well_scoped x) ->
       (* It's not well-scoped here; send it back down, either to the
          next handler or to the original call *)
 

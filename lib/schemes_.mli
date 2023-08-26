@@ -1,7 +1,7 @@
-open Syb_common
-open Syb_classes
-open Metasyb_classes_
-open Partially_static
+open Common
+open Classes
+open Classes_
+open Partially_static_
 
 (** Apply a transformation everywhere in bottom-up manner *)
 val everywhere_ : genericT_ -> genericT_

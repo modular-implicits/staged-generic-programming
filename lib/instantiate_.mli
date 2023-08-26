@@ -1,5 +1,5 @@
-open Metasyb_classes_
-open Partially_static
+open Classes_
+open Partially_static_
 
 val generateT : {D:DATA_} -> genericT_ -> (D.t -> D.t) code
 val generateQ : {D:DATA_} -> 'u code genericQ_ -> (D.t -> 'u) code
