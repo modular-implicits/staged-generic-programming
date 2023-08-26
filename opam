@@ -13,11 +13,11 @@ install: [[make "install"]
           [make "test"] {with-test} ]
 remove: [make "uninstall"]
 depends: [
-   "ocamlfind" {build}
+   "dune" {build}
    "higher"
    "delimcc"
    "genlet"
-   "ounit"
+   # "ounit"
    "ocaml-variants"
      {= "4.02.1+modular-implicits-ber" }
 ]
