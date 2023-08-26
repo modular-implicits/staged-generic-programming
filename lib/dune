@@ -4,15 +4,15 @@
  (libraries genlet higher delimcc)
  (modules
    Bindings_
-   Classes 
-   Classes_ 
-   Common 
-   Constructors 
-   Constructors_ 
-   Fixpoints_ 
-   Instances 
-   Instances_ 
-   Instantiate_ 
-   Partially_static_ 
-   Schemes_ 
-   Staged_))
+   Classes
+   Classes_
+   Common
+   Constructors
+   Constructors_
+   Fixpoints
+   Instances
+   Instances_
+   Instantiate
+   Partially_static
+   Schemes
+   Staged))

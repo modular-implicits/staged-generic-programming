@@ -1,4 +1,4 @@
-open Partially_static_
+open Partially_static
 implicit module S = PS_string_monoid
 let sta = S.sta
 let (<+>) = PS_string_monoid.(<+>)

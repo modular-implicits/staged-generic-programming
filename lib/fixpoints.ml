@@ -61,7 +61,7 @@ let gfixQ_ = Q.memofix
 module M(N: MONAD_) = Memofix(struct type ('a, 't) t = ('t, N.t) app end)
 let gfixM_ {N: MONAD_} = let module M' = M(N) in M'.memofix
 
-open Partially_static_
+open Partially_static
 
 module Memofix2 (R:PS) =
 struct

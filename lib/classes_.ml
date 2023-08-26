@@ -1,7 +1,7 @@
 (* SYB-style equality, using extensible variants to avoid the unsafe cast. *)
 
 open Higher
-open Partially_static_
+open Partially_static
 open Classes
 open Constructors_
 

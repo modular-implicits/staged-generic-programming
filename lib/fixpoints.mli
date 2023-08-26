@@ -1,6 +1,6 @@
 open Common
 open Classes_
-open Partially_static_
+open Partially_static
 
 val gfixQ_ : ('v code genericQ_ -> 'v code genericQ_) -> 'v code genericQ_
 val gfixT_ : (genericT_ -> genericT_) -> genericT_

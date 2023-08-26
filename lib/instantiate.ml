@@ -1,5 +1,5 @@
 open Classes_
-open Partially_static_
+open Partially_static
 
 let generateT {D: DATA_} (f : genericT_) =
   Bindings_.let_locus @@ fun () -> .< fun x -> .~(f .<x>.) >.

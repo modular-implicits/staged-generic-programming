@@ -1,7 +1,7 @@
 open Common
 open Classes
 open Classes_
-open Partially_static_
+open Partially_static
 
 (** Apply a transformation everywhere in bottom-up manner *)
 val everywhere_ : genericT_ -> genericT_

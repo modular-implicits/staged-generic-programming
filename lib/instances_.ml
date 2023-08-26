@@ -3,7 +3,7 @@ open Instances
 open Classes_
 open Constructors_
 open Bindings_
-open Partially_static_
+open Partially_static
 
 implicit module Data_int =
 struct

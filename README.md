@@ -19,9 +19,9 @@ The following examples assume that you have loaded the package and brought the i
 ```ocaml
 # #require "metaocaml-syb";;
 # open Metaocaml_syb.Instances_;;
-# open Metaocaml_syb.Schemes_;;
-# open Metaocaml_syb.Instantiate_;;
-# open Metaocaml_syb.Partially_static_;;
+# open Metaocaml_syb.Schemes;;
+# open Metaocaml_syb.Instantiate;;
+# open Metaocaml_syb.Partially_static;;
 ```
 
 

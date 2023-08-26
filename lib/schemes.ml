@@ -1,8 +1,8 @@
 open Common
 open Classes_
-open Fixpoints_
+open Fixpoints
 open Bindings_
-open Partially_static_
+open Partially_static
 
 module type TYPEABLE = Classes.TYPEABLE
 

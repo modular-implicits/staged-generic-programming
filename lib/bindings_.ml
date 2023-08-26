@@ -66,7 +66,7 @@ in
   loop @@ push_prompt lrp @@ fun () ->
     r := Some (body ()); Done
 
-open Partially_static_
+open Partially_static
 
 type ('t, 't_) reifyt = {
   reifyt: {P:PS} -> ('t code -> ('t_ -> P.t)  -> P.t)
