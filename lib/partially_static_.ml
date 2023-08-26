@@ -17,7 +17,7 @@ end
 let dyn {P:PS} x = P.dyn x
 let cd {P:PS} x = P.cd x
 
-(* Possibly-static_ data *)
+(* Possibly-static data *)
 type ('s, 'd) sd = Sta of 's | Dyn of 'd code
 
 module SD (T:sig type t val lift : t -> t code val eq : t -> t -> partial_equality end) :

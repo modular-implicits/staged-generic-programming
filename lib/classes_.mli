@@ -1,8 +1,8 @@
 open Higher
-open Partially_static_
+open Partially_static
 open Constructors_
 
-(** Support for monadic traversals over partially-static_ data. *) 
+(** Support for monadic traversals over partially-static data. *) 
 
 module type MONAD_ =
 sig

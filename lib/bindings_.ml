@@ -99,11 +99,11 @@ let send_case_req : type _b t t_. {P:PS} -> (t, t_) reifyt -> t code -> (t_ -> P
       (reifyk unrolledk, false)
 
 
-(* if the continuations are both static_ and equal then we can replace
+(* if the continuations are both static and equal then we can replace
    the whole match with just the continuation.*)
 type 'pt optreq = OCont of 'pt * (unit -> 'pt optreq) | ODone
 
-(* collapse a list of "continuations" if they're all static_ and equal *)
+(* collapse a list of "continuations" if they're all static and equal *)
 let rec collapsek : {P:PS} -> P.t ->  P.t list -> P.t option = fun {P:PS} seed -> function
     [] when P.now seed <> None -> Some seed
   | [] -> None
@@ -115,7 +115,7 @@ let optimized_reify : {P:PS} -> {D:DATA_} -> D.t code -> (D.t_ -> P.t) -> P.t op
     let optp = new_prompt () in
     (* 'handle' accumulates the "continuations" (match branches) in
        'conts' and, when they're all accumluated, collapses if they're
-       static_ and equal *)
+       static and equal *)
     let rec handle conts req : P.t option = match conts, req with
         [], ODone -> None
       | seed :: conts, ODone  -> collapsek seed conts
