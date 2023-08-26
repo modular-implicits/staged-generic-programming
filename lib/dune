@@ -1,5 +1,6 @@
 (library
  (name metaocaml_syb)
+ (public_name metaocaml-syb)
  (libraries genlet higher delimcc)
  (modules
    Bindings_
