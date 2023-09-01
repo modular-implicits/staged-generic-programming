@@ -88,7 +88,7 @@ and ('t, 't_, 'b, 'bsta) case_record = {
 (* The single prompt for case-insertion *)
 let crp : case_req prompt = new_prompt ()
 
-let send_case_req : type _b t t_. {P:PS} -> (t, t_) reifyt -> t code -> (t_ -> P.t) -> P.t * bool =
+let send_case_req : type t t_. {P:PS} -> (t, t_) reifyt -> t code -> (t_ -> P.t) -> P.t * bool =
   fun {P:PS} ({reifyt} as rt) x unrolledk ->
     let reifyk : {P:PS} -> (t_ -> P.t) -> P.t
       = fun {P:PS} k -> reifyt x k in
